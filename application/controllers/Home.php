@@ -24,6 +24,8 @@ class Home extends CI_Controller {
         
         $data['resultado'] = $resultado;
         $data['nome'] = $nome;
+        $this->load->view('templates/htmlHeader'); 
+        $this->load->view('templates/header');
         $this->load->view('index', $data);	
     }
 }
