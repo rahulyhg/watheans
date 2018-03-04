@@ -1,7 +1,10 @@
-###################
-Mapa Astral
-###################
+#Watheans
 
-Este é um projeto em desenvolvimento e ainda estamos nos acostumando com github
-Nao nos julgue
-obrigado
+######Watchers of heavens
+
+Watheans é um *website* para cálculo de mapa astral.
+Ainda se encontra em fase de desenvolvimento.
+
+######Ferramentas utilizadas
+- Swiss Ephemeris Library 
+- CodeIgniter Framework
