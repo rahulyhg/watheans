@@ -20,25 +20,28 @@ class MapaNatal {
         
         
         //Execução do Swiss. Opções de linha de comando: https://www.astro.com/cgi/swetest.cgi?arg=-h&p=0
-        exec ($libPath."swetest -edir$libPath -b$dia -ut$hora -p0123456789 -eswe -house$longitude,$latitude, -fPldj -g, -head", $saida);
+        exec ($libPath."swetest -edir$libPath -b$dia -ut$hora -p0123456789 -eswe -house$longitude,$latitude, -fPls -g, -head", $saida);
         
         /* Cada linha da saída se torna um array com os seguintes elementos
          * 0 - Nome do astro
          * 1 - Longitude do astro
-         * 2 - Declinação
-         * 3 - Posição da casa
+         * 2 - Velocidade por dia
          * Planetas são índices de 0 - 9, casas astrologicas 10 - 21, demais informações 22 - 25
          */
         foreach ($saida as $indice => $linha) {
             $linha = explode(',',$linha);
             $nome[$indice] = $linha[0];
             $longitudeSaida[$indice] = $linha[1];
-            $declinacao[$indice] = $linha[2];
-            $posicaoCasa[$indice] = $linha[3];
+            
+            if($indice < 10)
+                $velocidade[$indice] = $linha[2];
         }
         
         for($i = 0; $i < 26; $i++){
             $resultado[$i] = $this->getSignoPosicao($longitudeSaida[$i]);
+            
+            if($i < 10)
+                $resultado[$i]['velocidade'] = $velocidade[$i];
         }
         
         return $resultado;

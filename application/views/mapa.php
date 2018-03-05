@@ -22,10 +22,15 @@
                         */
 
                         for($i = 0; $i < 26; $i++){
-                        echo '<tr><td>' . $nome[$i] . "</td><td>"   .$resultado[$i]['grau'] . " " 
-                        .$resultado[$i]['signo'] . " "
-                        .$resultado[$i]['minuto'] . "' " 
-                        .$resultado[$i]['segundo'] . "\"</td>";
+                            echo '<tr><td>' . $nome[$i] . "</td><td>"   .$resultado[$i]['grau'] . " " 
+                            .$resultado[$i]['signo'] . " "
+                            .$resultado[$i]['minuto'] . "' " 
+                            .$resultado[$i]['segundo'] . "\"</td>";
+                        
+                            if($i < 10){
+                                echo '<td>' . ($resultado[$i]['velocidade'] < 0 ? 'R' : ' ') . '</td>';
+                            }
+                            echo '</tr>';
                         } 
                     ?>     
                 </table>  

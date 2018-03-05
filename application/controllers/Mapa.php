@@ -27,7 +27,8 @@ class Mapa extends CI_Controller {
         $mapaDados['nome'] = $nome;
         $this->load->view('templates/htmlHeader'); 
         $this->load->view('templates/header');
-        $this->load->view('mapa', $mapaDados);  
+        $this->load->view('mapa', $mapaDados);
+        $this->load->view('mapa_canvas');
     }
 }
 ?>
